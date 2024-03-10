@@ -1,0 +1,692 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+  color: #000;
+  background-color: #0B0F17;
+  font-size: 1.125rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin: 0;
+  position: relative;
+}
+
+a {
+  color: #fff;
+  transition: color 0.2s ease-in;
+}
+
+.wrapper {
+  max-width: 1430px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.app {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.fade {
+  overflow-x: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:link,
+a:hover {
+  text-decoration: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+button {
+  border: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* Скрывает крестик в IE */
+input::-ms-clear {
+  display: none;
+}
+
+input,
+button,
+optgroup,
+textarea,
+select {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.header {
+  position: relative;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 115px;
+}
+.header__list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 52px;
+}
+.header__nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+@media (hover: hover) and (pointer: fine) {
+  .header__nav-link:hover {
+    color: #fff;
+  }
+}
+.header__call {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0F17;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  background-color: #84d7e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 206px;
+  max-width: 206px;
+  height: 54px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .header__call:hover {
+    background-color: #dbf3f8;
+  }
+}
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.header__right .header__login {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .header__right .header__login:hover {
+    color: #fff;
+  }
+}
+.header__key {
+  width: 24px;
+  height: 23px;
+}
+
+.active {
+  color: #fff;
+}
+
+.header__gradient {
+  position: absolute;
+  z-index: -1;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 70px;
+  width: 100%;
+  max-width: 1500px;
+  height: 380px;
+  background: linear-gradient(180deg, #0e1c2d 0%, #0b0f17 74.5%);
+}
+
+.login__background {
+  background: url("../../assets/login/back.jpg") 0 0/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.login {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-login {
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+  width: calc(100% - 20px);
+  max-width: 570px;
+  background-color: #1F283D;
+  box-shadow: 4px 4px 4px 0 rgba(255, 255, 255, 0.25);
+  outline: 1px solid #394153;
+  border-radius: 30px;
+}
+
+.login__logo-block {
+  text-align: center;
+}
+.login__title {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 30px;
+  font-family: "Urbanist", sans-serif;
+  padding-top: 16px;
+  margin: 0;
+}
+.login__signup {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  padding-top: 10px;
+  margin: 0;
+}
+.login__signup span {
+  color: #fff;
+}
+
+.login__form-input {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  height: 62px;
+  background: #0B0F17;
+  outline: none;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 400;
+  margin-top: 22px;
+  transition: all 0.2s ease;
+}
+.login__form-input ::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+}
+.login__form-input ::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+}
+.login__form-input:focus {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.login__form-input_mail {
+  padding: 16px 56px;
+  margin-top: 35px;
+}
+.login__form-input_password {
+  padding: 16px 54px;
+  margin-top: 6px;
+}
+.login__form-label {
+  position: relative;
+}
+.login__form-mail {
+  position: absolute;
+  top: 2px;
+  left: 18px;
+}
+.login__form-lock {
+  position: absolute;
+  top: -2px;
+  left: 18px;
+}
+.login__form-forgot {
+  text-align: right;
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  padding-top: 15px;
+}
+.login__form-submit {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0F17;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  background-color: #84d7e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 62px;
+  margin-top: 30px;
+  padding: 0;
+  border-radius: 20px;
+  font-size: 28px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .login__form-submit:hover {
+    background-color: #dbf3f8;
+  }
+}
+.login__form-submit:focus-visible {
+  outline: #fff;
+  border: 1px solid #fff;
+}
+@media (hover: none) and (pointer: coarse) {
+  .login__form-submit:focus-visible {
+    outline: none;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .login__form-submit:hover {
+    background: #b8f2ff;
+  }
+}
+
+.login__or {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 37px;
+}
+.login__or hr {
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  margin: 0;
+}
+.login__or p {
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.login__form-input:focus + .login__form-mail g path {
+  fill-opacity: 1;
+}
+
+.login__form-input:focus + .login__form-lock path {
+  fill-opacity: 1;
+}
+
+.login__button-gosuslugi {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0F17;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  background-color: #84d7e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 7px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 270px;
+  height: 62px;
+  margin-top: 27px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .login__button-gosuslugi:hover {
+    background-color: #dbf3f8;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .login__button-gosuslugi:hover {
+    background-color: #0B0F17;
+  }
+}
+.login__button-gosuslugi:focus-visible {
+  outline: #fff;
+  border: 1px solid #fff;
+}
+@media (hover: none) and (pointer: coarse) {
+  .login__button-gosuslugi:focus-visible {
+    outline: none;
+  }
+}
+.login__button-gosuslugi p {
+  font-size: 20px;
+  margin: 0;
+  color: #fff;
+}
+
+.login__eye-hidden {
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.login__eye {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.login__eyeClose {
+  cursor: pointer;
+}
+
+.login__eyeClose-button {
+  position: absolute;
+  top: 0px;
+  right: 18px;
+}
+
+.login__cross {
+  position: absolute;
+  right: 62px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.login__form-input:focus ~ .login__eyeClose-button svg path {
+  fill-opacity: 1;
+}
+
+.error {
+  border: 1px solid #ff6476;
+}
+.error:focus {
+  border: 1px solid #ff6476;
+  color: #fff;
+}
+
+.error-label {
+  color: #ff6476;
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  top: -48px;
+  left: 0;
+}
+
+.password__background {
+  background: url("../../assets/forgot.password/back.jpg") 0 0/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.password {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.password__logo-block {
+  text-align: center;
+}
+.password__title {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 30px;
+  font-family: "Urbanist", sans-serif;
+  padding-top: 16px;
+  margin: 0;
+}
+.password__text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.home__inner {
+  display: flex;
+  padding-top: 102px;
+  justify-content: space-between;
+}
+.home__img {
+  box-shadow: 0 0 50px 2px rgba(132, 215, 233, 0.2);
+  border-radius: 200px;
+  width: 100%;
+  height: 100%;
+  min-width: 274px;
+}
+.home__title {
+  font-family: "Urbanist", sans-serif;
+  font-size: 144px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 133%;
+  max-width: 704px;
+  letter-spacing: -0.05em;
+  margin: 0;
+  width: 100%;
+}
+.home__benefits {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+.home__benefits-1 {
+  padding-top: 42px;
+  width: 207px;
+}
+.home__benefits-1 p {
+  padding-top: 12px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home__benefits-2 {
+  width: 240px;
+}
+.home__benefits-2 p {
+  padding-top: 12px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.choice__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 42px;
+  -moz-column-gap: 42px;
+       column-gap: 42px;
+  margin-top: 186px;
+}
+.choice__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  border-radius: 50px;
+  max-width: 286px;
+  width: 100%;
+  height: 82px;
+  border: none;
+  background-color: #0B0F17;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .choice__button:hover {
+    background-color: #84d7e9;
+  }
+}
+.choice__row {
+  display: flex;
+  height: 452px;
+  gap: 42px;
+}
+.choice__row-second {
+  display: flex;
+  height: 260px;
+  gap: 42px;
+}
+.choice__item {
+  position: relative;
+  border-radius: 50px;
+}
+.choice__item img {
+  border-radius: 50px;
+  transition: all 0.4s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .choice__item:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.25);
+  }
+}
+.choice__item-1 img {
+  min-width: 678px;
+}
+.choice__item-2 {
+  width: 100%;
+  max-width: 200px;
+}
+.choice__item-2 img {
+  border-radius: 100px;
+}
+.choice__item-3 {
+  background-color: #1F283D;
+  border-radius: 50px;
+  padding: 45px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.choice__item-3 h2 {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 700;
+  font-size: 46px;
+  letter-spacing: -0.05em;
+  color: #fff;
+  margin: 0;
+}
+.choice__item-3 p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  padding-top: 20px;
+}
+.choice__item-3 button {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0F17;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  background-color: #84d7e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #0B0F17;
+  font-size: 20px;
+  font-weight: 600;
+  height: 66px;
+  background-color: #ff6476;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .choice__item-3 button:hover {
+    background-color: #dbf3f8;
+  }
+}
