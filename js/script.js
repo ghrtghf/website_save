@@ -1,4 +1,4 @@
-import console from './fafa.js';
+// import console from './fafa.js';
 
 barba.init({
   views: [
@@ -20,6 +20,12 @@ barba.init({
     },
     {
       namespace: 'home',
+      afterEnter() {
+        logoInfinity();
+      },
+    },
+    {
+      namespace: 'new.password',
       afterEnter() {
         logoInfinity();
       },
