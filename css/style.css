@@ -719,3 +719,38 @@ select {
 .new-pass__input {
   margin-top: 35px;
 }
+
+.validation__hidden {
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.validation {
+  padding-top: 20px;
+  padding-left: 7px;
+  display: grid;
+  row-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}
+.validation__tick {
+  width: 16px;
+  height: 16px;
+  transition: all 0.5s ease;
+}
+.validation__cross {
+  width: 14px;
+  height: 14px;
+  transition: all 0.5s ease;
+}
+.validation__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.validation__text {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+}

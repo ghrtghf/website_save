@@ -28,6 +28,9 @@ barba.init({
       namespace: 'new.password',
       afterEnter() {
         logoInfinity();
+        birdsNewPassword();
+        newPassword();
+        eye();
       },
     },
   ],
@@ -52,7 +55,7 @@ function birdsLogin() {
   VANTA.BIRDS({
     el: '.login__background',
     mouseControls: true,
-    touchControls: true,
+    touchControls: false,
     gyroControls: false,
     minHeight: 200.0,
     minWidth: 200.0,
@@ -70,7 +73,7 @@ function birdsForgotPassword() {
   VANTA.BIRDS({
     el: '.password__background',
     mouseControls: true,
-    touchControls: true,
+    touchControls: false,
     gyroControls: false,
     minHeight: 200.0,
     minWidth: 200.0,
@@ -82,6 +85,25 @@ function birdsForgotPassword() {
     separation: 100.0,
     color1: 0x433c69,
     color2: 0x4395aa,
+    backgroundAlpha: 0.0,
+  });
+}
+function birdsNewPassword() {
+  VANTA.BIRDS({
+    el: '.new-pass__background',
+    mouseControls: true,
+    touchControls: false,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    quantity: 3.0,
+    birdSize: 1.0,
+    wingSpan: 30.0,
+    separation: 100.0,
+    color1: 0x847356,
+    color2: 0xbd802b,
     backgroundAlpha: 0.0,
   });
 }
@@ -135,7 +157,6 @@ function inputValidation() {
       if (input.value == '') {
         result = false;
         errorInput(input, 'Пустое поле');
-      } else {
       }
     }
     return result;
@@ -146,6 +167,183 @@ function inputValidation() {
 
     if (validation() == true) {
       alert('Авторизированны');
+    }
+  });
+}
+
+function newPassword() {
+  const cross = document.querySelectorAll('.validation__cross');
+  const tick = document.querySelectorAll('.validation__tick');
+  const inputNewPass = document.querySelector('.new-pass__input');
+  const validText = document.querySelectorAll('.validation__text');
+  const crossLogin = document.querySelector('.login__cross');
+
+  let result;
+
+  function validationOnline() {
+    inputNewPass.oninput = function loop() {
+      for (let item of cross) {
+        if (item.parentElement.classList.contains('new-pass__min')) {
+          if (inputNewPass.value.length > 8) {
+            item.classList.add('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__min')) {
+                iterator.classList.remove('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__min')) {
+                color.style.color = '#ff6476';
+              }
+            }
+            result = true;
+          } else {
+            item.classList.remove('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__min')) {
+                iterator.classList.add('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__min')) {
+                color.style.color = '';
+              }
+            }
+            result = false;
+          }
+        }
+      }
+
+      for (let item of cross) {
+        if (item.parentElement.classList.contains('new-pass__symbol')) {
+          let valueInput = inputNewPass.value;
+          if (/\W/.test(valueInput) && !/[А-Яа-я]/.test(valueInput)) {
+            debugger;
+            item.classList.add('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__symbol')) {
+                iterator.classList.remove('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__symbol')) {
+                color.style.color = '#ff6476';
+              }
+            }
+            result = true;
+          } else {
+            item.classList.remove('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__symbol')) {
+                iterator.classList.add('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__symbol')) {
+                color.style.color = '';
+              }
+            }
+            result = false;
+          }
+        }
+      }
+
+      for (let item of cross) {
+        if (item.parentElement.classList.contains('new-pass__number')) {
+          let valueInput = inputNewPass.value;
+          if (/\d/.test(valueInput)) {
+            item.classList.add('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__number')) {
+                iterator.classList.remove('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__number')) {
+                color.style.color = '#ff6476';
+              }
+            }
+            result = true;
+          } else {
+            item.classList.remove('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__number')) {
+                iterator.classList.add('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__number')) {
+                color.style.color = '';
+              }
+            }
+            result = false;
+          }
+        }
+      }
+
+      for (let item of cross) {
+        if (item.parentElement.classList.contains('new-pass__upper')) {
+          let valueInput = inputNewPass.value;
+          if (/[A-Z]/.test(valueInput)) {
+            item.classList.add('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__upper')) {
+                iterator.classList.remove('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__upper')) {
+                color.style.color = '#ff6476';
+              }
+            }
+            result = true;
+          } else {
+            item.classList.remove('validation__hidden');
+            for (let iterator of tick) {
+              if (iterator.parentElement.classList.contains('new-pass__upper')) {
+                iterator.classList.add('validation__hidden');
+              }
+            }
+            for (let color of validText) {
+              if (color.parentElement.classList.contains('new-pass__upper')) {
+                color.style.color = '';
+              }
+            }
+            result = false;
+          }
+        }
+      }
+
+      crossLogin.addEventListener('click', () => {
+        inputNewPass.value = '';
+        loop();
+      });
+    };
+
+    return result;
+  }
+  validationOnline();
+
+  function validationText() {
+    const parent = inputNewPass.parentElement;
+    let errorLabel = document.createElement('div');
+    errorLabel.textContent = 'Пароль не соответствует';
+    errorLabel.classList.add('error-label');
+    inputNewPass.classList.add('error');
+    parent.append(errorLabel);
+
+    setTimeout(() => {
+      errorLabel.remove();
+      inputNewPass.classList.remove('error');
+    }, 4000);
+  }
+
+  document.querySelector('.new-pass__form').addEventListener('submit', ev => {
+    if (result == true) {
+      return true;
+    } else {
+      validationText();
+      ev.preventDefault();
     }
   });
 }
