@@ -17,11 +17,11 @@
         <div class="new-pass">
           <div class="new-pass__inner block-login">
             <div class="password__logo-block">
-              <a href="../index.html"><img src="../assets/header/logo.png" alt="Logo-login" class="password__logo logo" /></a>
+              <a href="../index.php"><img src="../assets/header/logo.png" alt="Logo-login" class="password__logo logo" /></a>
             </div>
             <h1 class="password__title">Восстановление пароля</h1>
             <p class="password__text">Введите новый пароль</p>
-            <form action="./login.html" method="" class="new-pass__form">
+            <form action="#" method="" class="new-pass__form">
               <label class="login__form-label">
                 <input type="password" name="password" placeholder="Новый пароль" class="login__form-input login__form-input_password new-pass__input" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="27" viewBox="0 0 21 27" fill="none" class="login__form-lock">
@@ -78,7 +78,7 @@
               </div>
               <input type="submit" value="Создать новый" class="login__form-submit new-pass__button" />
             </form>
-            <a href="./forgot.password.html" class="password__back back-button">Назад</a>
+            <a href="./forgot.password.php" class="password__back back-button">Назад</a>
           </div>
           <div class="new-pass__background"></div>
         </div>
