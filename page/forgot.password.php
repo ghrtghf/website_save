@@ -17,7 +17,7 @@
         <div class="password">
           <div class="password__inner block-login">
             <div class="password__logo-block">
-              <a href="../index.html"><img src="../assets/header/logo.png" alt="Logo-login" class="password__logo logo" /></a>
+              <a href="../index.php"><img src="../assets/header/logo.png" alt="Logo-login" class="password__logo logo" /></a>
             </div>
             <h1 class="password__title">Восстановление пароля</h1>
             <p class="password__text">Укажите адрес электронной почты</p>
@@ -39,8 +39,8 @@
                 </svg>
               </label>
             </form>
-            <a href="./new.password.html"><button class="login__form-submit">Восстановить</button></a>
-            <a href="./login.html" class="password__back back-button">Назад</a>
+            <a href="./new.password.php"><button class="login__form-submit">Восстановить</button></a>
+            <a href="./login.php" class="password__back back-button">Назад</a>
           </div>
           <div class="password__background"></div>
         </div>

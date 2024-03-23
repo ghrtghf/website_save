@@ -18,17 +18,17 @@
           <div class="header__gradient"></div>
           <div class="wrapper">
             <div class="header__inner">
-              <a class="header__logo" href="./index.html"><img src="./assets/header/logo.png" alt="Logo" class="logo" /></a>
+              <a class="header__logo" href="./index.php"><img src="./assets/header/logo.png" alt="Logo" class="logo" /></a>
               <nav class="header__nav">
                 <ul class="header__list">
-                  <a href="./index.html" class="header__nav-link active"><li>Главная</li></a>
+                  <a href="./index.php" class="header__nav-link active"><li>Главная</li></a>
                   <a href="#" class="header__nav-link"><li>Страхование</li></a>
                   <a href="#" class="header__nav-link"><li>О нас</li></a>
                 </ul>
               </nav>
               <div class="header__right">
-                <button class="header__call" onclick="document.location=''">Позвонить</button>
-                <a href="./page/login.html" class="header__login"><img src="./assets/header/key.svg" alt="Key-login" class="header__key" />Войти</a>
+                <button class="header__call">Позвонить</button>
+                <a href="./page/login.php" class="header__login"><img src="./assets/header/key.svg" alt="Key-login" class="header__key" />Войти</a>
               </div>
             </div>
           </div>

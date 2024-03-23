@@ -17,7 +17,7 @@
         <div class="login">
           <div class="login__inner block-login">
             <div class="login__logo-block">
-              <a href="../index.html"><img src="../assets/header/logo.png" alt="Logo-login" class="login__logo logo" /></a>
+              <a href="../index.php"><img src="../assets/header/logo.png" alt="Logo-login" class="login__logo logo" /></a>
             </div>
             <h1 class="login__title">Добро пожаловать</h1>
             <p class="login__signup">
@@ -40,7 +40,7 @@
                   </defs>
                 </svg>
               </label>
-              <p class="login__form-forgot"><a href="../page/forgot.password.html">Забыли пароль?</a></p>
+              <p class="login__form-forgot"><a href="../page/forgot.password.php">Забыли пароль?</a></p>
               <label class="login__form-label">
                 <input type="password" name="password" placeholder="Пароль" class="login__form-input login__form-input_password" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="27" viewBox="0 0 21 27" fill="none" class="login__form-lock">
