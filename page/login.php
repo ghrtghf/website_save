@@ -23,7 +23,7 @@
             <p class="login__signup">
               У вас ещё нет аккаунта? <span><a href="">Зарегистрироваться</a></span>
             </p>
-            <form action="./profile.html" method="" class="login__form">
+            <form action="#" method="POST" class="login__form">
               <label class="login__form-label">
                 <input type="text" name="email" placeholder="Адрес почты" class="login__form-input login__form-input_mail" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="22" viewBox="0 0 25 22" fill="none" class="login__form-mail">
@@ -73,7 +73,7 @@
                   </svg>
                 </div>
               </label>
-              <input type="submit" class="login__form-submit" value="Войти" />
+              <input type="submit" class="login__form-submit" value="Войти"/>
             </form>
             <div class="login__or">
               <hr />

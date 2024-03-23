@@ -136,8 +136,8 @@ function eye() {
 }
 
 function inputValidation() {
+  const inputAllValid = document.querySelectorAll('.login__form-input');
   function validation() {
-    const inputAllValid = document.querySelectorAll('.login__form-input');
     let result = true;
 
     function errorInput(input, text) {
@@ -150,23 +150,68 @@ function inputValidation() {
       setTimeout(() => {
         errorLabel.remove();
         input.classList.remove('error');
-      }, 4000);
+      }, 2000);
+    }
+
+    function emailInput(input) {
+      return !/^\w+([\.-]?\w+)*@\w([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
     }
 
     for (let input of inputAllValid) {
       if (input.value == '') {
         result = false;
         errorInput(input, 'Пустое поле');
+      } else {
+        if (input.hasAttribute('data-email')) {
+          if (emailInput(input)) {
+            result = false;
+            errorInput(input, 'Неправильная почта');
+          } else {
+            result = true;
+          }
+        }
       }
     }
     return result;
   }
 
-  document.querySelector('.login__form').addEventListener('submit', ev => {
+  const form = document.querySelector('.login__form');
+  const buttonForm = document.querySelector('.login__form-submit');
+
+  form.addEventListener('submit', ev => {
     ev.preventDefault();
 
     if (validation() == true) {
-      alert('Авторизированны');
+      let passwordForm = document.querySelector('.login__form-input_password').value;
+      let emailForm = document.querySelector('.login__form-input_mail').value;
+			
+      let number = {
+        email: emailForm,
+        password: passwordForm,
+      };
+
+      async function formSend() {
+        let response = await fetch('../php/checkUser.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify(number),
+        });
+        if (response.ok) {
+          let done = await response.json();
+          console.log(done);
+          debugger;
+        } else {
+          alert('Ошибка');
+        }
+      }
+      formSend();
+    } else {
+      buttonForm.setAttribute('disabled', ' ');
+      setTimeout(() => {
+        buttonForm.removeAttribute('disabled');
+      }, 2000);
     }
   });
 }
