@@ -26,6 +26,7 @@ barba.init({
       afterEnter() {
         preloaderJS();
         logoInfinity();
+        offClick();
       },
     },
     {
@@ -113,6 +114,14 @@ function birdsNewPassword() {
 }
 function logoInfinity() {
   gsap.to('.logo', { repeat: -1, rotate: 360, duration: 5, yoyo: true });
+}
+
+function offClick() {
+  document.querySelectorAll('.header__inner a').forEach(item => {
+    item.addEventListener('click', ev => {
+      ev.preventDefault();
+    });
+  });
 }
 
 function eye() {

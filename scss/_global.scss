@@ -9,6 +9,7 @@ body {
   font-weight: 500;
   margin: 0;
   position: relative;
+  scroll-behavior: smooth;
 }
 a {
   color: inherit;
@@ -33,6 +34,7 @@ html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 .fade {
   overflow: auto;
@@ -41,6 +43,7 @@ html {
   height: 100%;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 main {
   flex-grow: 1;

@@ -21,7 +21,7 @@ export default function preloaderJS() {
   const preloader = document.querySelector('.preloader');
   const fadeDOM = document.querySelectorAll('.fade');
 
-  if (window.location.href == 'http://save/index.php') {
+  if (window.location.pathname == '/index.php') {
     preloader.classList.add('preloader--hide');
     fadeDOM.forEach(item => {
       item.style.overflow = '';

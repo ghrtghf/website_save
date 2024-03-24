@@ -60,7 +60,7 @@
 									<img src="./assets/index/asterisk.svg" alt="Asterisk" class="logo" />
 									<p>Мы предлагаем на выбор низкие цены страхования и включаем бесплатные дополнительные услуги.</p>
 								</div>
-								<a class="home__benefits-arrow" href="#">
+								<a class="home__benefits-arrow" href="#choice">
 									<img src="./assets/index/bottom-arrow.png" alt="Arrow-bottom" />
 								</a>
 							</div>
@@ -70,7 +70,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="choice">
+				<section class="choice" id="choice">
 					<div class="wrapper">
 						<div class="choice__inner">
 							<div class="choice__row">
