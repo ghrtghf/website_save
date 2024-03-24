@@ -1,4 +1,4 @@
-// import console from './fafa.js';
+import preloaderJS from './preloader.js';
 
 barba.init({
   views: [
@@ -20,7 +20,11 @@ barba.init({
     },
     {
       namespace: 'home',
+      beforeEnter() {
+        preloaderJS();
+      },
       afterEnter() {
+        preloaderJS();
         logoInfinity();
       },
     },
@@ -184,7 +188,7 @@ function inputValidation() {
     if (validation() == true) {
       let passwordForm = document.querySelector('.login__form-input_password').value;
       let emailForm = document.querySelector('.login__form-input_mail').value;
-			
+
       let number = {
         email: emailForm,
         password: passwordForm,
