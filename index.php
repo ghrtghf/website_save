@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/php/healpers.php'
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -28,7 +32,17 @@
               </nav>
               <div class="header__right">
                 <button class="header__call">Позвонить</button>
-                <a href="./page/login.php" class="header__login"><img src="./assets/header/key.svg" alt="Key-login" class="header__key" />Войти</a>
+                <?php
+                 if (empty($_SESSION['user']['id'])) {
+                  echo '<a href="./page/login.php" class="header__login"><img src="./assets/header/key.svg" alt="Key-login" class="header__key" />Войти</a>';
+                } else {
+                  if($_SESSION['user']['role'] == 2){
+                  echo '<a href="./page/profile.php" class="header__login">Admin</a>';
+                  }else{
+                    echo '<a href="./page/profile.php" class="header__login">Profile</a>';
+                  }}
+                ?>
+                
               </div>
             </div>
           </div>

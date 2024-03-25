@@ -178,42 +178,42 @@ function inputValidation() {
   const form = document.querySelector('.login__form');
   const buttonForm = document.querySelector('.login__form-submit');
 
-  form.addEventListener('submit', ev => {
-    ev.preventDefault();
+  // form.addEventListener('submit', ev => {
+  //   ev.preventDefault();
 
-    if (validation() == true) {
-      let passwordForm = document.querySelector('.login__form-input_password').value;
-      let emailForm = document.querySelector('.login__form-input_mail').value;
+  //   if (validation() == true) {
+  //     let passwordForm = document.querySelector('.login__form-input_password').value;
+  //     let emailForm = document.querySelector('.login__form-input_mail').value;
 			
-      let number = {
-        email: emailForm,
-        password: passwordForm,
-      };
+  //     let number = {
+  //       email: emailForm,
+  //       password: passwordForm,
+  //     };
 
-      async function formSend() {
-        let response = await fetch('../php/checkUser.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-          body: JSON.stringify(number),
-        });
-        if (response.ok) {
-          let done = await response.json();
-          console.log(done);
-          debugger;
-        } else {
-          alert('Ошибка');
-        }
-      }
-      formSend();
-    } else {
-      buttonForm.setAttribute('disabled', ' ');
-      setTimeout(() => {
-        buttonForm.removeAttribute('disabled');
-      }, 2000);
-    }
-  });
+  //     async function formSend() {
+  //       let response = await fetch('../php/checkUser.php', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json;charset=utf-8',
+  //         },
+  //         body: JSON.stringify(number),
+  //       });
+  //       if (response.ok) {
+  //         let done = await response.json();
+  //         console.log(done);
+  //         debugger;
+  //       } else {
+  //         alert('Ошибка');
+  //       }
+  //     }
+  //     formSend();
+  //   } else {
+  //     buttonForm.setAttribute('disabled', ' ');
+  //     setTimeout(() => {
+  //       buttonForm.removeAttribute('disabled');
+  //     }, 2000);
+  //   }
+  // });
 }
 
 function newPassword() {
