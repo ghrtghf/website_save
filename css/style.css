@@ -794,3 +794,299 @@ select {
   color: rgba(255, 255, 255, 0.25);
   font-weight: 600;
 }
+
+.signup__background {
+  background: url("../../assets/signup/background.jpg") 0 0/cover no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.signup {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.signup__content {
+  max-width: 570px;
+  width: 100%;
+  background-color: #1F283D;
+  border: 1px solid #394153;
+  z-index: 1;
+  position: relative;
+  padding: 40px 52px 40px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.signup__title {
+  margin: 0;
+  color: #ff6476;
+  font-size: 40px;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.signup__subtitle {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: #fff;
+  margin: 0;
+  padding-top: 22px;
+}
+.signup__button-gosuslugi {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0F17;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  background-color: #84d7e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 7px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 auto;
+  width: 100%;
+  height: 62px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .signup__button-gosuslugi:hover {
+    background-color: #dbf3f8;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .signup__button-gosuslugi:hover {
+    background-color: #0B0F17;
+  }
+}
+.signup__button-gosuslugi:focus-visible {
+  outline: #fff;
+  border: 1px solid #fff;
+}
+@media (hover: none) and (pointer: coarse) {
+  .signup__button-gosuslugi:focus-visible {
+    outline: none;
+  }
+}
+.signup__button-gosuslugi p {
+  font-size: 20px;
+  margin: 0;
+  color: #fff;
+}
+.signup__row {
+  display: flex;
+  gap: 10px;
+}
+.signup__or {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 30px;
+}
+.signup__or hr {
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  margin: 0;
+}
+.signup__or p {
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+.signup__toLogin {
+  color: rgba(255, 255, 255, 0.25);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 18px;
+}
+.signup__toLogin p {
+  margin: 0;
+}
+.signup__toLogin a {
+  color: #fff;
+}
+
+.signup__form-input {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  height: 62px;
+  background: #0B0F17;
+  outline: none;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 400;
+  margin-top: 22px;
+  transition: all 0.2s ease;
+}
+.signup__form-input ::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+}
+.signup__form-input ::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+}
+.signup__form-input:focus {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.signup__form-label {
+  position: relative;
+}
+.signup__form-input_mail {
+  padding: 16px 10px 16px 56px;
+  margin-top: 30px;
+}
+.signup__form-mail {
+  position: absolute;
+  top: 0;
+  left: 18px;
+}
+.signup__form-input_name {
+  padding: 16px 10px 16px 56px;
+  margin-top: 30px;
+}
+.signup__form-name {
+  position: absolute;
+  top: 48px;
+  left: 18px;
+}
+.signup__form-input_tel {
+  padding: 16px 10px 16px 56px;
+  margin-top: 30px;
+  width: 230px;
+}
+.signup__form-tel {
+  position: absolute;
+  bottom: 20px;
+  left: 18px;
+}
+.signup__form-input_calendar {
+  padding: 16px 10px 16px 56px;
+  margin-top: 30px;
+  width: 224px;
+  height: 62px;
+}
+.signup__form-input_calendar::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.signup__form-input_calendar::-webkit-datetime-edit {
+  font-family: "Poppins", sans-serif;
+}
+.signup__form-input_calendar::-webkit-datetime-edit-month-field {
+  background-color: transparent;
+}
+.signup__form-input_calendar::-webkit-inner-spin-button {
+  display: none;
+}
+.signup__form-calendar {
+  position: absolute;
+  bottom: 20px;
+  left: 18px;
+}
+
+.signup__form-input:focus + label path {
+  fill-opacity: 1;
+}
+
+.signup__form-input:focus + .signup__form-lock path {
+  fill-opacity: 1;
+}
+
+.signup__form-input:focus + .signup__form-name path {
+  fill-opacity: 1;
+}
+
+.signup__form-input:focus + .signup__form-tel path {
+  fill-opacity: 1;
+}
+
+.signup__form-input:focus + .signup__form-calendar path {
+  fill-opacity: 1;
+}
+
+.signup__form-submit {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0B0F17;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  background-color: #84d7e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 62px;
+  margin-top: 30px;
+  padding: 0;
+  border-radius: 20px;
+  font-size: 28px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .signup__form-submit:hover {
+    background-color: #dbf3f8;
+  }
+}
+.signup__form-submit:focus-visible {
+  outline: #fff;
+  border: 1px solid #fff;
+}
+@media (hover: none) and (pointer: coarse) {
+  .signup__form-submit:focus-visible {
+    outline: none;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .signup__form-submit:hover {
+    background: #b8f2ff;
+  }
+}
+
+.signup__error {
+  border: 1px solid #ff6476;
+}
+.signup__error:focus {
+  border: 1px solid #ff6476;
+  color: #fff;
+}
+
+.signup__error-label {
+  color: #ff6476;
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -5,12 +5,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Страховая компания Save's</title>
-	<link type="image/x-icon" rel="shortcut icon" href="./assets/favicon/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
-	<link type="image/png" sizes="192x192" rel="icon" href="./assets/favicon/android-chrome-192x192.png" />
-	<link rel="stylesheet" href="./css/style.css" />
+	<link type="image/x-icon" rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
+	<link type="image/png" sizes="192x192" rel="icon" href="../assets/favicon/android-chrome-192x192.png" />
+	<link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body data-barba="wrapper" class="">
@@ -25,13 +25,13 @@
 				<div class="header__gradient"></div>
 				<div class="wrapper">
 					<div class="header__inner">
-						<a class="header__logo" href="./index.php"><img src="./assets/header/logo.png" alt="Logo" class="logo" /></a>
+						<a data-off-click class="header__logo" href="./"><img src="./assets/header/logo.png" alt="Logo" class="logo" /></a>
 						<nav class="header__nav">
 							<ul class="header__list">
-								<a href="./index.php" class="header__nav-link active">
+								<a data-off-click href="./" class="header__nav-link active">
 									<li>Главная</li>
 								</a>
-								<a href="#" class="header__nav-link">
+								<a href="#choice" class="header__nav-link">
 									<li>Страхование</li>
 								</a>
 								<a href="#" class="header__nav-link">
@@ -113,7 +113,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-	<script type="module" src="./js/script.js"></script>
+	<script type="module" src="../js/script.js"></script>
 </body>
 
 </html>

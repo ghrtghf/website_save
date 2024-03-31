@@ -17,7 +17,7 @@
         <div class="new-pass">
           <div class="new-pass__inner block-login">
             <div class="password__logo-block">
-              <a href="../index.php"><img src="../assets/header/logo.png" alt="Logo-login" class="password__logo logo" /></a>
+              <a href="../"><img src="../assets/header/logo.png" alt="Logo-login" class="password__logo logo" /></a>
             </div>
             <h1 class="password__title">Восстановление пароля</h1>
             <p class="password__text">Введите новый пароль</p>

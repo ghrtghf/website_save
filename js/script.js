@@ -1,4 +1,5 @@
 import preloaderJS from './preloader.js';
+import signupValid from './signup.js';
 
 barba.init({
   views: [
@@ -9,6 +10,15 @@ barba.init({
         eye();
         logoInfinity();
         inputValidation();
+      },
+    },
+    {
+      namespace: 'signup',
+      afterEnter() {
+        logoInfinity();
+        eye();
+        signupValid();
+        newPassword();
       },
     },
     {
@@ -117,10 +127,14 @@ function logoInfinity() {
 }
 
 function offClick() {
-  document.querySelectorAll('.header__inner a').forEach(item => {
-    item.addEventListener('click', ev => {
-      ev.preventDefault();
-    });
+  const link = document.querySelectorAll('.header__inner a');
+
+  link.forEach(item => {
+    if (item.hasAttribute('data-off-click')) {
+      item.addEventListener('click', ev => {
+        ev.preventDefault();
+      });
+    }
   });
 }
 
@@ -150,7 +164,7 @@ function eye() {
 
 function inputValidation() {
   const inputAllValid = document.querySelectorAll('.login__form-input');
-  function validation() {
+  function validation(done) {
     let result = true;
 
     function errorInput(input, text) {
@@ -174,14 +188,37 @@ function inputValidation() {
       if (input.value == '') {
         result = false;
         errorInput(input, 'Пустое поле');
-      } else {
-        if (input.hasAttribute('data-email')) {
-          if (emailInput(input)) {
-            result = false;
-            errorInput(input, 'Неправильная почта');
-          } else {
-            result = true;
-          }
+      } else if (input.hasAttribute('data-email')) {
+        if (emailInput(input)) {
+          result = false;
+          errorInput(input, 'Неправильный ввод');
+
+          buttonForm.setAttribute('disabled', ' ');
+          setTimeout(() => {
+            buttonForm.removeAttribute('disabled');
+          }, 2000);
+        } else if (done == 1) {
+          result = false;
+          errorInput(input, 'Такого пользователя нет');
+
+          buttonForm.setAttribute('disabled', ' ');
+          setTimeout(() => {
+            buttonForm.removeAttribute('disabled');
+          }, 2000);
+        } else {
+          result = true;
+        }
+      } else if (input.hasAttribute('data-password')) {
+        if (done == 2) {
+          result = false;
+          errorInput(input, 'Неправильный пароль');
+
+          buttonForm.setAttribute('disabled', ' ');
+          setTimeout(() => {
+            buttonForm.removeAttribute('disabled');
+          }, 2000);
+        } else {
+          result = true;
         }
       }
     }
@@ -213,8 +250,21 @@ function inputValidation() {
         });
         if (response.ok) {
           let done = await response.json();
-          console.log(done);
-          debugger;
+          if (done == 1) {
+            validation(done);
+          } else if (done == 2) {
+            validation(done);
+          } else {
+            // async function redirect() {
+            //   const href = document.createElement('a');
+            //   href.setAttribute('href', 'http://save/page/profile.php');
+            //   buttonForm.before(href);
+            //   href.append(buttonForm);
+            // }
+            // redirect();
+            // ev.preventDefault();
+            debugger;
+          }
         } else {
           alert('Ошибка');
         }
@@ -276,7 +326,6 @@ function newPassword() {
         if (item.parentElement.classList.contains('new-pass__symbol')) {
           let valueInput = inputNewPass.value;
           if (/\W/.test(valueInput) && !/[А-Яа-я]/.test(valueInput)) {
-            debugger;
             item.classList.add('validation__hidden');
             for (let iterator of tick) {
               if (iterator.parentElement.classList.contains('new-pass__symbol')) {
