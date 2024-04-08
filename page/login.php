@@ -1,5 +1,7 @@
 <?php
 require_once '../php/helpers.php';
+
+CheckoutUser();
 ?>
 <!DOCTYPE html>
 <html lang="ru">

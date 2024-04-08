@@ -1,54 +1,35 @@
 <?php
+
+
 require_once __DIR__ . '/helpers.php';
 
-$avatarPath = null;
-$name = $_POST['login'] ?? null;
-$email = $_POST['email'] ?? null;
-$password = $_POST['password'] ?? null;
-$accept_password = $_POST['accept_password'] ?? null;
-$avatar = $_FILES['avatar'] ?? null;
+$message = json_decode(file_get_contents('php://input'));
 
-$_SESSION['validation'] = [];
+$name = $message->name;
+$lastName = $message->LastName;
+$surname = $message->surname;
+$email = $message->email;
+$phone = $message->phone;
+$birthDate = $message->birthDate;
+$password = $message->password;
 
 $user = findUser($email);
 
 if ($user['status'] == 'active') {
 	addValidationError(fieldName: 'email', message: 'The mail already exists');
-}
+	$message = 1;
+}else{
+	$pdo = getPDO();
 
-if ($password != $accept_password) {
-	addValidationError(fieldName: 'password', message: 'Mismatch');
-};
-
-if (!empty($avatar['name'])) {
-
-	$types = ['image/jpeg', 'image/png'];
-
-	if (!in_array($avatar['type'], $types)) {
-		addValidationError('avatar', 'Incorrect image type');
-	}
-
-	if (($avatar['size'] / 5000000) >= 1) {
-		addValidationError('avatar', 'Image larger than 5 MB');
-	}
-}
-
-if (!empty($_SESSION['validation'])) {
-	redirect(path: '/page/sign.up.php');
-};
-
-if (!empty($avatar['name'])) {
-	$avatarPath = uploadFile($avatar, 'avatar');
-}
-
-$pdo = getPDO();
-
-$query = "INSERT INTO users (name, email, avatar, password, status, role) VALUES (:name, :email, :avatar, :password, :status, :role)";
+$query = "INSERT INTO users (name, last_name, surname, email, phone, birth_date, password, status, role) VALUES (:name, :last_name, :surname, :email, :phone, :birth_date, :password, :status, :role)";
 
 $params = [
 	'name' => $name,
+	'last_name' => $lastName,
+	'surname' => $surname,
 	'email' => $email,
-	'avatar' => $avatarPath,
+	'phone' => $phone,
+	'birth_date' => $birth_date,
 	'password' => password_hash($password, PASSWORD_DEFAULT),
 	'status' => 1,
 	'role' => 1
@@ -68,3 +49,5 @@ $_SESSION['user']['id'] = $user['id'];
 $_SESSION['user']['role'] = $user['role'];
 
 redirect('/');
+}
+

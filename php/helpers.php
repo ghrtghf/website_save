@@ -32,8 +32,8 @@ function findUser(string $email): array|bool
 {
 	$pdo = getPDO();
 
-	$stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email AND status = :status");
-	$stmt->execute(['email' => $email , 'status' => '1']);
+	$stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email AND status <> :status");
+	$stmt->execute(['email' => $email , 'status' => '2']);
 	return $stmt->fetch(\PDO::FETCH_ASSOC);
 }
 
@@ -55,4 +55,10 @@ function uploadFile(array $file, string $prefix = '')
 	}
 
 	return "uploads/$fileName";
+}
+
+function CheckoutUser(){
+	if (isset($_SESSION['user'])) {
+		redirect('/');
+	}
 }
