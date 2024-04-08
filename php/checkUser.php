@@ -10,14 +10,13 @@ $user = findUser($email);
 
 if (!$user) {
 	addValidationError('email', "User not found");
-}
+	$message = 2;
+}else
 if (!password_verify($password, $user['password'])) {
 	addValidationError('password', 'Incorrect password');
-}
-
-if(!isset($_SESSION['validation'])){
-	$message = 2;
-}else{
+	$message = 3;
+}else
+ {
 	$_SESSION['user']['id'] = $user['id'];
 	$_SESSION['user']['role'] = $user['role'];
 	$message = 1;
