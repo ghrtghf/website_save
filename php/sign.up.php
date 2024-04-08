@@ -48,6 +48,8 @@ $user = findUser($email);
 $_SESSION['user']['id'] = $user['id'];
 $_SESSION['user']['role'] = $user['role'];
 
+$messsage = true;
+
 redirect('/');
 }
 
