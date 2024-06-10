@@ -87,7 +87,7 @@ function FindType(string $name): array|bool
     return $result ? $result : false;
 }
 
-function MyInsurance (string $value, string $default = 'p.UserID')
+function MyInsurance (string $value, string $table, $sort = null)
 {
 	$pdo = getPDO();
 
@@ -113,7 +113,9 @@ function MyInsurance (string $value, string $default = 'p.UserID')
 		JOIN
 			InsuranceCategory ic ON ic.CategoryID = it.CategoryID
 		WHERE
-			$default = :value"
+			$table = :value
+		ORDER BY
+		p.Started_at $sort"
 	);
 	$stmt->execute(['value' => $value]);
 	
