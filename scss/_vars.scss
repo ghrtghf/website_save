@@ -1,0 +1,116 @@
+:root {
+  --background: #0b0f17;
+  // --background: #84d7e9;
+  --background-second: #1f283d;
+  // --background-second: #00D2FF;
+  --background-third: #fff;
+  // --background-third: #ff6476;
+
+  --background-reverse: #84d7e9;
+
+  --reverse: #ff6476;
+
+  --color-main: #fff;
+  // --color-main: #1f283d;
+  --color-second: #0b0f17;
+  // --color-second: #84D7E9;
+
+  --color-reverse: #1f283d;
+
+  --background-gradient: #0e1c2d;
+
+  --blue: #84d7e9;
+  --dark: #0b0f17;
+  --light-dark: #1f283d;
+  --white: #fff;
+  --black: #000;
+  --pink: #ff6476;
+  --green: rgb(123 214 130);
+
+  --opacity: rgba(255, 255, 255, 25%);
+}
+
+// Fonts
+$font-main: 'Poppins', sans-serif;
+$font-second: 'Urbanist', sans-serif;
+
+// Colors
+
+$background: var(--background);
+$background-second: var(--background-second);
+$background-third: var(--background-third);
+$background-gradient: var(--background-gradient);
+$background-reverse: var(--background-reverse);
+$reverse: var(--reverse);
+
+$color-main: var(--color-main);
+$color-second: var(--color-second);
+$color-reverse: var(--color-reverse);
+
+$dark: var(--dark);
+$light-dark: var(--light-dark);
+$white: var(--white);
+$black: var(--black);
+$pink: var(--pink);
+$blue: var(--blue);
+
+$opacity: var(--opacity);
+
+body.dark {
+  --background: #84d7e9;
+  --background-second: #00d2ff;
+  --background-third: #ff6476;
+  --background-gradient: #d0f7ff;
+  --background-reverse: #0b0f17;
+
+  --reverse: #0b0f17;
+
+  --color-main: #1f283d;
+  --color-second: #84d7e9;
+  --color-reverse: #fff;
+  --green: rgb(0 125 10);
+
+  --opacity: rgba(31, 40, 61, 0.25);
+
+  .home__benefits-arrow {
+    background: linear-gradient(180deg, rgba(132, 215, 233, 0.1) 0%, rgba(11, 15, 23, 0.17) 100%);
+    transition: all 0.2s ease;
+  }
+
+  .about__subtitle {
+    color: rgba(31, 40, 61, 0.4);
+  }
+  .swiper-pagination-bullet {
+    background: rgba(31, 40, 61, 0.4);
+  }
+
+  .home__img {
+    box-shadow: 0 0 50px 2px rgba(11, 15, 23, 0.2);
+  }
+  .catalog__btn-item {
+    color: rgba($color: #84d7e9, $alpha: 0.6);
+  }
+  .catalog__btn--active {
+    color: $blue;
+  }
+}
+
+// Breakpoints
+
+$mobile-max: 'screen and (max-width: 26.5625rem)';
+$mobile-min: 'screen and (min-width: 20rem)';
+$mobile-interval: '(min-width: 20rem) and (max-width: 26.5625rem)';
+
+$tablet-max: 'screen and (max-width: 63.9625rem)';
+
+$mouse-device: '(hover: hover) and (pointer: fine)';
+$touch-device: '(hover: none) and (pointer: coarse)';
+
+// z-index
+
+$index-1: 1; // Для наползающих элементов в общем потоке
+$index-2: 2; // Для наползающих элементов в общем потоке
+$index-3: 3; // Для масок, фона
+$index-4: 4; // Для сайдбаров
+$index-5: 5; // Для модальных окон
+$index-6: 6; // Для элементов, покрывающих всё
