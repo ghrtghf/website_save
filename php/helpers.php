@@ -87,39 +87,52 @@ function FindType(string $name): array|bool
     return $result ? $result : false;
 }
 
-function MyInsurance (string $value, string $table, $sort = null)
+function MyInsurance ( $value, $table, $sort = null)
 {
-	$pdo = getPDO();
+	if(!empty($sort)){
+		$allowedSortValues = ['ASC', 'DESC'];
+		$sort = in_array(strtoupper($sort), $allowedSortValues) ? strtoupper($sort) : 'ASC';
+	}
+    
+    $where = '';
+    $params = [];
 
-	$stmt = $pdo->prepare(
-		"SELECT 
-    		p.Started_at,
-    		p.Endet_at,
-			p.PolisID,
-			ps.StatusName,
-			ps.StatusID, 	
-			ic.CategoryName,
-			ic.CategoryImg,
-			it.TypeName,
-			u.full_name
-		FROM 
-			Policies p
-		JOIN 
-    		InsuranceType it ON it.TypeID = p.TypeID
-		JOIN 
-    		users u ON u.id = p.UserID 
-		JOIN
-			PoliciStatus ps ON ps.StatusID = p.PoliciStatus
-		JOIN
-			InsuranceCategory ic ON ic.CategoryID = it.CategoryID
-		WHERE
-			$table = :value
-		ORDER BY
-		p.Started_at $sort"
-	);
-	$stmt->execute(['value' => $value]);
-	
-	$result = $stmt->fetchAll();
+    if (!empty($value) && !empty($table)) {
+        $where = "WHERE $table = :value";
+        $params['value'] = $value;
+    }
+
+    $pdo = getPDO();
+
+    $stmt = $pdo->prepare(
+        "SELECT 
+            p.Started_at,
+            p.Endet_at,
+            p.PolisID,
+            ps.StatusName,
+            ps.StatusID,   
+            ic.CategoryName,
+            ic.CategoryImg,
+            it.TypeName,
+            u.full_name
+        FROM 
+            Policies p
+        JOIN 
+            InsuranceType it ON it.TypeID = p.TypeID
+        JOIN 
+            users u ON u.id = p.UserID 
+        JOIN
+            PoliciStatus ps ON ps.StatusID = p.PoliciStatus
+        JOIN
+            InsuranceCategory ic ON ic.CategoryID = it.CategoryID
+        $where
+        ORDER BY
+            p.Started_at $sort"
+    );
+
+    $stmt->execute($params);
+
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     return $result ? $result : false;
 }

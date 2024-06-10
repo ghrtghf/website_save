@@ -1,5 +1,5 @@
 <?php  require_once __DIR__ . '/../php/helpers.php'; 
-	$sort = 'Новое';
+	$sort = null;
 	if(isset($_GET['sort'])){
 		$sort = $_GET['sort'];
 	}
@@ -72,7 +72,7 @@
 							</div>
 							<?php if(MyInsurance($sort, 'ps.StatusName')){
 								foreach(MyInsurance($sort, 'ps.StatusName') as $newPolis){
-							} ?>
+							 ?>
 							<div class="admin__item">
 								<div class="admin__info">
 									<p class="admin__number admin__text">
@@ -101,7 +101,7 @@
 									</form>
 								</div>
 							</div>
-							<?php } ?>
+							<?php }} ?>
 
 						</div>
 					</div>
@@ -109,6 +109,9 @@
 
 						<div class="navbar__inner">
 							<h2 class="admin__name navbar__title">Сортировка</h2>
+							<form action="/page/admin.php">
+								<button class="admin__btn navbar-active">Все</button>
+							</form>
 							<form action="/page/admin.php" method="GET">
 								<button class="admin__btn navbar-active">Новые заявки</button>
 								<input type="hidden" name="sort" value="Новое">
