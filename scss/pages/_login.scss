@@ -1,0 +1,266 @@
+.login__background {
+  background: url('../../assets/login/back.jpg') 0 0 / cover no-repeat;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  z-index: -1;
+}
+.login {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+
+  padding: 35px;
+  width: calc(100% - 20px);
+  max-width: 570px;
+
+  background-color: $background-second;
+  box-shadow: 4px 4px 4px 0 $opacity;
+
+  outline: 1px solid $background;
+  border-radius: 30px;
+}
+
+.login {
+  &__logo-block {
+    text-align: center;
+  }
+  &__title {
+    text-align: center;
+
+    color: $color-main;
+    font-weight: 600;
+    font-size: 30px;
+    font-family: $font-second;
+
+    padding-top: 16px;
+    margin: 0;
+  }
+  &__signup {
+    text-align: center;
+
+    color: $opacity;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: $font-main;
+
+    padding-top: 10px;
+    margin: 0;
+    span {
+      color: $color-main;
+    }
+  }
+}
+.login__form {
+  &-input {
+    border: 1px solid $opacity;
+    border-radius: 10px;
+
+    width: 100%;
+    max-width: 500px;
+    height: 62px;
+
+    background: $color-second;
+    outline: none;
+
+    font-size: 20px;
+    color: $opacity;
+    font-weight: 400;
+    margin-top: 22px;
+
+    transition: all 0.2s ease;
+
+    ::placeholder {
+      font-family: $font-main;
+      font-weight: 400;
+      font-size: 20px;
+      color: $opacity;
+    }
+
+    &:focus {
+      border: 1px solid $color-main;
+      color: $color-main;
+    }
+  }
+  &-input_mail {
+    padding: 16px 56px;
+    margin-top: 35px;
+  }
+  &-input_password {
+    padding: 16px 54px;
+    margin-top: 6px;
+  }
+
+  &-label {
+    position: relative;
+  }
+  &-mail {
+    position: absolute;
+    top: 2px;
+    left: 18px;
+  }
+  &-lock {
+    position: absolute;
+    top: -2px;
+    left: 18px;
+  }
+  &-forgot {
+    text-align: right;
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: $color-main;
+    padding-top: 15px;
+  }
+  &-submit {
+    @include button;
+    height: 62px;
+    margin-top: 30px;
+    padding: 0;
+
+    border-radius: 20px;
+
+    font-size: 28px;
+
+    &:focus-visible {
+      outline: $color-main;
+      border: 1px solid $color-main;
+    }
+    @media #{$touch-device} {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    @media #{$mouse-device} {
+      &:hover {
+        background: #b8f2ff;
+      }
+    }
+  }
+}
+.login__or {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding-top: 37px;
+  hr {
+    width: 100%;
+    height: 1px;
+    color: $color-main;
+    border: none;
+    background-color: $color-main;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+
+    text-transform: uppercase;
+    color: $color-main;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: $font-main;
+  }
+}
+.login__form-input:focus + .login__form-mail g path {
+  fill-opacity: 1;
+}
+.login__form-input:focus + .login__form-lock path {
+  fill-opacity: 1;
+}
+
+.login__button-gosuslugi {
+  @include button;
+  gap: 7px;
+
+  margin: 0 auto;
+  width: 100%;
+  max-width: 270px;
+  height: 62px;
+  margin-top: 27px;
+
+  border-radius: 20px;
+  border: 1px solid $opacity;
+  background: rgba(255, 255, 255, 0.1);
+  @media #{$mouse-device} {
+    &:hover {
+      background-color: $dark;
+    }
+    body.dark &:hover {
+      background-color: $dark;
+    }
+  }
+  &:focus-visible {
+    outline: $color-main;
+    border: 1px solid $color-main;
+  }
+  @media #{$touch-device} {
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    margin: 0;
+    color: $white;
+  }
+}
+
+.login__eye-hidden {
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.login__eye {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+.login__eyeClose {
+  cursor: pointer;
+}
+.login__eyeClose-button {
+  position: absolute;
+  top: 0px;
+  right: 18px;
+}
+.login__cross {
+  position: absolute;
+  right: 62px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.login__form-input:focus ~ .login__eyeClose-button svg path {
+  fill-opacity: 1;
+}
+
+.error {
+  border: 1px solid $pink !important;
+
+  &:focus {
+    border: 1px solid $pink !important;
+    color: $color-main !important;
+  }
+}
+.error-label {
+  color: $pink;
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  top: -48px;
+  left: 0;
+}
