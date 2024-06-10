@@ -1,17 +1,15 @@
 <?php
 require_once __DIR__ . '/helpers.php';
 
-$message = json_decode(file_get_contents('php://input'));
-
-$F = $message -> F ?? null;
-$I = $message -> I ?? null;
-$O = $message -> O ?? null;
-$email = $message -> email ?? null;
-$phone = $message -> phone ?? null;
-$date_birth = $message -> date_birth ?? null;
+$F = $_POST['F'] ?? null;
+$I = $_POST['I'] ?? null;
+$O = $_POST['O'] ?? null;
+$email = $_POST['email'] ?? null;
+$phone = $_POST['phone'] ?? null;
+$date_birth = $_POST['date_birth'] ?? null;
 $id = $_SESSION['user']['id'];
 
-$full_name = $F + ' ' + $I + ' ' + $O;
+$full_name = "$F $I $O";
 
 $pdo = getPDO();
 
@@ -19,7 +17,7 @@ $query = "UPDATE users
     SET 
         full_name = :full_name, 
         email = :email, 
-        phone = :phone
+        phone = :phone,
         date_birth = :date_birth
     WHERE
         id = :id
@@ -40,3 +38,5 @@ try {
 } catch (\Exception $e) {
 	die($e->getMessage());
 }
+
+redirect('/page/profile.php');

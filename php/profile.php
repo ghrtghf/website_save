@@ -3,7 +3,7 @@ require_once __DIR__ . '/helpers.php';
 
 $user = findUserID($_SESSION['user']['id']);
 
-$FIO = explode(" ", $user['full_name']);
+$FIO = fullNameExtract($user['full_name']);
 
 $lastname = $FIO[0];
 $name = $FIO[1];

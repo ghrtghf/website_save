@@ -142,3 +142,16 @@ function outStatus(string $status)
     return $result ? $result : false;
 }
 
+function fullNameExtract(string $full_name): array|false
+{
+	$FIO = explode(" ", $full_name);
+
+	$FIO = [
+    	'lastname' => $FIO[0],
+    	'name' => $FIO[1],
+    	'patronomic' => $FIO[2]
+	];
+
+	return $FIO ?  $FIO : false;
+}
+
